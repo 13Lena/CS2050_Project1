@@ -36,14 +36,27 @@ public class Element {
     // TODO: two elements are considered to be equal if they have the same atom letter.
     @Override
     public boolean equals(final Object obj) {
-        return false; // placeholder so the code compiles
-    }
+        if ((obj == null) || (!(obj instanceof Element))) {
+            return false;
+        }
+        else {
+        Element other = (Element)obj;
+        return atomLetter.equals(other.atomLetter);
+        }
+     }
+    
 
     @Override
     public String toString() {
-        return "Element{" +
-                "'" + atomLetter + "'" +
-                ", name='" + name + '\'' +
-                '}';
+        return "Element{'" + atomLetter + "', " +
+                "name = '" + name + "'}";
     }
+
+    //testing Element output
+
+    //  public static void main(String[] args) {
+    //      Element c1 = new Element("b", "boron");
+    //      Element c2 = new Element("c", "carbon");
+    //      System.out.println(c1.equals(c2));
+    //  }
 }

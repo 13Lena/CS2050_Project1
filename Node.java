@@ -5,13 +5,13 @@
  * Description: Prg01 - Node Class
  */
 
- package Project.Project1;
+package Project.Project1;
 
 public class Node {
 
     private Element element;
-    private int     amount;
-    private Node    next;
+    private int amount;
+    private Node next;
 
     public static final int DEFAULT_AMOUNT = 1;
 
@@ -43,4 +43,34 @@ public class Node {
     public void setNext(Node next) {
         this.next = next;
     }
+
+    public void insert(Node newNode) {
+        Node tail = getNext();
+        newNode.setNext(tail);
+        setNext(newNode);
+
+    }
+
+    @Override
+    public String toString() {
+
+        if (amount > DEFAULT_AMOUNT) {
+            return element.getAtomLetter() + "_" + amount;
+        } else {
+            return element.getAtomLetter();
+        }
+    }
+
+    // testing Node output
+    
+    // public static void main(String[] args) {
+    // Node c = new Node(new Element("c"));
+    // Node h = new Node(new Element("h"));
+    // Node d = new Node(new Element("d"));
+    // Node k = new Node(new Element("k"));
+    // Node f = new Node(new Element("f"));
+
+    // System.out.println(f.getElement().getAtomLetter().compareTo(d.getElement().getAtomLetter()));
+
+    // }
 }
